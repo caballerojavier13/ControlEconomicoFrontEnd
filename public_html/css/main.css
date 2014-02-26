@@ -32,6 +32,12 @@ textarea{
 .my_table-hover tr:hover{
     
 }
+.my_table-striped{
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 0 0 1px black;
+}
 .my_table-striped tr:nth-child(even){
     background: rgba(150,150,150,0.3);
 }
