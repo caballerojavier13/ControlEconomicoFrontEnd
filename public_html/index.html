@@ -6,10 +6,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Control Económico</title>
+        <link rel="shortcut icon" href="./icon/favicon.ico" type="image/x-icon" >
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
+        
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
             body {
@@ -26,28 +27,35 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="./index.html">Project name</a>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="./index.html">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li><a href="./lugar/index_lugar.html">Lugar</a></li>
+                        <li><a href="./tarjeta_credito/index_tarjeta_credito.html">Tarjeta de Credito</a></li>
+                        <li><a href="./tarjeta_debito/index_tarjeta_debito.html">Tarjeta de Debito</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./tarjeta_debito/tipo_movimiento.html">Tipo Movimiento</a></li>
+                            </ul>
+                        </li>
+                </div><!--/.navbar-collapse -->
+            </div>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="./index.html">Home</a></li>
-            <li><a href="./lugar/index_lugar.html">Lugar</a></li>
-            <li><a href="#contact">Contact</a></li>
-            
-          </ul>
-          
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
-
+        <h1 class="titulo">
+            Control Económico
+        </h1>
+        <img src="img/dinero.png" alt="" style="width: 600px; height: 400px; position: absolute; left: 50%; margin-left: -300px;top: 50%; margin-top: -100px;">
         <script src="js/vendor/jquery/jquery.js"></script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
