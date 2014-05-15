@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="../icon/favicon.ico" type="image/x-icon" >
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+
+        <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand" style="color: white">Proyecto Económico</span>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../lugar/index_lugar.html">Lugar</a></li>
+                        <li><a href="../cuenta/index_cuenta.html">Cuentas</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
+                            <ul class="dropdown-menu" style="background: #3F3D3D">
+                                <li><a href="../tipo_transaccion/index_tipo_transaccion.html">Tipo Transacción</a></li>
+                                <li><a href="../cuenta/index_cuenta.html">Cuenta</a></li>
+                            </ul>
+                        </li>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </div>
+        <h1 class="titulo">
+            Transacciones de la cuenta: <br/> Tarjeta Nativa
+        </h1> 
+        <button class="btn btn-success col-lg-2" data-toggle="modal" data-target="#form_new_transaccion"  id="nueva_cuenta" style="position: relative; margin-left: 10%; margin-top: 15px; margin-bottom: 20px;"  >Agregar Transacción</button>
+        <div style="position: relative;float: right;margin-right: 10%;margin-bottom: 20px;background: rgba(50,50,50,0.3);border-radius: 3px;box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.67), 0 0 6px rgba(104, 104, 104, 1);padding: 4px;padding-top: 9px;text-shadow: 0 0 3px gray;font-size: 20px;border: 1px solid white; color: white;padding-left: 20px;padding-right: 20px;">
+            <label class="control-label" style="display: inline-block">Saldo de la Cuenta:</label>
+            <div style="display: inline-block;" id="inputSaldoCuenta">
+                $ 
+            </div>
+        </div>
+        <div class="row borde" style="margin-top: 80px;">
+            <div class="form-group">
+                <label for="inputTCuenta" class="control-label" style="display: inline-block">Filtrar por Tipo de Cuenta:</label>
+                <div style="width: 200px; display: inline-block; margin-right: 30px">
+                    <select id="inputTCuenta" class="form-control">
+
+                    </select>
+                </div>
+                <label for="inputCuenta" class="control-label" style="display: inline-block">Filtrar por Cuenta:</label>
+                <div style="width: 200px; display: inline-block">
+                    <select id="inputCuenta" class="form-control">
+
+                    </select>
+                </div>
+
+            </div>
+            <table class="table my_table-striped">
+                <thead>
+                    <tr>
+                        <td>Tipo Operación</td>
+                        <td>Monto</td>
+                        <td>Fecha</td>
+                        <td>Operaciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <ul class="pager" style="position: absolute;top: 50%;margin-top: -18px;width: 100%;left: 0;">
+                <li class="previous disabled"><a href="wwwasd"><<</a></li>
+                <li class="next disabled"><a href="asdasd" class>>></a></li>
+            </ul>
+        </div>
+
+        <div class="modal fade" id="form_new_transaccion" >
+            <div class="modal-dialog">
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Transacción</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="new_inputTipoTransaccion" class="col-sm-4 control-label">Tipo de Transacción:</label>
+                                <div class="col-sm-8">
+                                    <select id="new_inputTipoTransaccion" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="divisor"></div>
+                            <div class="form-group" id="new_concepto">
+                                <label for="new_inputConcepto" class="col-sm-3 control-label">Concepto:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="new_inputConcepto" placeholder="Concepto">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div id="new_importe">
+                                    <label for="new_inputImporte" class="col-sm-3 control-label">Importe:</label>
+                                    <div class="col-sm-8">
+                                        <span class="money">$</span>
+                                        <input class="form-control" style="padding-left: 30px;" value="" type="number" id="new_inputImporte" placeholder="00.00" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="new_inputFecha" class="col-sm-3 control-label">Fecha:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="new_inputFecha" style="cursor: pointer"/>
+                                    <span class="input-group-addon" style="cursor:pointer; position: absolute;width: 31px;height: 34px;right: 15px;top: 0px;"><img alt="" src="../icon/calendar.png" style="position: absolute;left: 4px;top:4px;"/></span>
+                                </div>
+                            </div>
+                            <div class="form-group" id="new_lugar">
+                                <label for="new_inputLugar" class="col-sm-3 control-label">Lugar:</label>
+                                <div class="col-sm-6" style="width: 280px">
+                                    <select id="new_inputLugar" class="form-control">
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary col-sm-2 nuevoLugar" data-toggle="modal" data-target="#form_lugar" style="font-size: 13px;padding-left: 8px;" >Agregar Lugar</button>
+                            </div>
+                            <div class="divisor"></div>
+                            <div class="form-group">
+                                <div>
+                                    <label for="new_inputImporte" class="col-sm-3 control-label">Saldo Anterior:</label>
+                                    <div class="col-sm-3">
+                                        <span class="money">$</span>
+                                        <input class="form-control" style="padding-left: 30px; background: white" value="" readonly type="number" id="new_inputSaldoAn" placeholder="00.00" step="0.01">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="new_inputImporte" class="col-sm-3 control-label">Saldo Actual:</label>
+                                    <div class="col-sm-3">
+                                        <span class="money">$</span>
+                                        <input class="form-control" style="padding-left: 30px; background: white" value="" readonly type="number" id="new_inputSaldoAc" placeholder="00.00" step="0.01" >
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-4">
+                                    <button id="new_form_trans_cancel" data-dismiss="modal" type="button" class="btn btn-default btn-block">Cancelar</button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button id="new_form_trans_submit" type="submit" class="btn btn-primary btn-block">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" id="form_edit_transaccion" >
+            <div class="modal-dialog">
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Transacción</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="edit_inputTipoTransaccion" class="col-sm-4 control-label">Tipo de Transacción:</label>
+                                <div class="col-sm-8">
+                                    <select id="edit_inputTipoTransaccion" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="divisor"></div>
+                            <div class="form-group" id="edit_concepto">
+                                <label for="edit_inputConcepto" class="col-sm-3 control-label">Concepto:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="edit_inputConcepto" placeholder="Concepto">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div id="edit_importe">
+                                    <label for="edit_inputImporte" class="col-sm-3 control-label">Importe:</label>
+                                    <div class="col-sm-8">
+                                        <span class="money">$</span>
+                                        <input class="form-control" style="padding-left: 30px;" value="" type="number" id="edit_inputImporte" placeholder="00.00" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit_inputFecha" class="col-sm-3 control-label">Fecha:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="edit_inputFecha" style="cursor: pointer"/>
+                                    <span class="input-group-addon" style="cursor:pointer; position: absolute;width: 31px;height: 34px;right: 15px;top: 0px;"><img alt="" src="../icon/calendar.png" style="position: absolute;left: 4px;top:4px;"/></span>
+                                </div>
+                            </div>
+                            <div class="form-group" id="edit_lugar">
+                                <label for="edit_inputLugar" class="col-sm-3 control-label">Lugar:</label>
+                                <div class="col-sm-6" style="width: 280px">
+                                    <select id="edit_inputLugar" class="form-control">
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary col-sm-2 nuevoLugar" data-toggle="modal" data-target="#form_lugar" style="font-size: 13px;padding-left: 8px;" >Agregar Lugar</button>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <label for="edit_inputImporte" class="col-sm-3 control-label">Saldo Anterior:</label>
+                                    <div class="col-sm-3">
+                                        <span class="money">$</span>
+                                        <input class="form-control" style="padding-left: 30px; background: white" value="" readonly type="number" id="edit_inputSaldoAn" placeholder="00.00" step="0.01">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="edit_inputImporte" class="col-sm-3 control-label">Saldo Actual:</label>
+                                    <div class="col-sm-3">
+                                        <span class="money">$</span>
+                                        <input class="form-control" style="padding-left: 30px; background: white" value="" readonly type="number" id="edit_inputSaldoAc" placeholder="00.00" step="0.01" >
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-4">
+                                    <button id="edit_form_trans_cancel" data-dismiss="modal" type="button" class="btn btn-default btn-block">Cancelar</button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button id="edit_form_trans_submit" type="submit" class="btn btn-primary btn-block">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div class="modal fade" id="form_view_transaccion" >
+            <div class="modal-dialog">
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Transacción</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="view_inputTipoTransaccion" class="col-sm-4 control-label">Tipo de Transacción:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="view_inputTipoTransaccion" readonly  style="background: white">
+                                </div>
+                            </div>
+                            <div class="divisor"></div>
+                            <div class="form-group" id="view_concepto">
+                                <label for="view_inputConcepto" class="col-sm-3 control-label">Concepto:</label>
+                                <div class="col-sm-8">
+                                    <input style="background: white" class="form-control" id="view_inputConcepto" placeholder="Concepto" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <label for="view_inputImporte" class="col-sm-3 control-label">Importe:</label>
+                                    <div class="col-sm-8">
+                                        <span class="money">$</span>
+                                        <input class="form-control" style="padding-left: 30px; background: white" value="" type="number" id="view_inputImporte" placeholder="00.00" step="0.01" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="view_inputFecha" class="col-sm-3 control-label">Fecha:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="text" id="view_inputFecha" readonly  style="background: white"/>
+
+                                </div>
+                            </div>
+                            <div class="form-group" id="view_lugar">
+                                <label for="view_inputLugar" class="col-sm-3 control-label">Lugar:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="view_inputLugar" readonly  style="background: white">
+                                </div>
+
+                            </div>
+
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-8">
+                                    <button id="view_form_trans_cancel" data-dismiss="modal" type="button" class="btn btn-default btn-block">Cerrar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div class="modal fade" id="form_lugar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Lugar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group" id="lugarnombre">
+                                <label for="inputLugarNombre" class="col-sm-2 control-label">Nombre:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="inputLugarNombre" placeholder="Nombre">
+                                </div>
+                            </div>
+                            <div class="form-group" id="lugardescripcion" >
+                                <label class="col-sm-2 control-label">Descripción:</label>
+                                <div class="col-sm-10">
+                                    <textarea  class="form-control" id="inputLugarDescripcion" placeholder="Descripcion"></textarea>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-4">
+                                    <button id="form_lugar_cancel" type="button" class="btn btn-default btn-block">Cancelar</button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button id="form_lugar_submit" type="submit" class="btn btn-primary btn-block">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <script src="../js/vendor/jquery/jquery.js"></script>
+        
+        <script src="../js/vendor/jqueryui/jquery-ui.js"></script>
+
+        <script src="../js/vendor/bootstrap.min.js"></script>
+
+        <script src="../js/vendor/jquery.gritter.js"></script>
+
+        <script src="../js/vendor/moment-2.4.0.js"></script>
+
+        <script src="../js/vendor/bootstrap-datetimepicker.js"></script>
+
+        <script src="../js/vendor/bootstrap-datetimepicker.es.js"></script>
+
+        <script src="../js/transaccion/index.js"></script>
+    </body>
+</html>

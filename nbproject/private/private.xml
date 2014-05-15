@@ -4,11 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/css/main.css</file>
-            <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/tarjeta_debito/movimiento_debito.html</file>
-            <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/js/tarjeta_debito/movimiento.js</file>
-            <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/js/tarjeta_debito/edit.js</file>
-            <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/tarjeta_debito/new_tarjeta_debito.html</file>
-            <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/css/bootstrap.css</file>
+            <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/tipo_transaccion/index_tipo_transaccion.html</file>
+            <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/transaccion/index_transaccion.html</file>
+            <file>file:/home/javier/NetBeansProjects/ControlEconomicoFrontEnd/public_html/js/tipo_transaccion/index.js</file>
         </group>
     </open-files>
 </project-private>

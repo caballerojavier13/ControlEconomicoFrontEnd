@@ -1,15 +1,15 @@
 $(function() {
-    $.getJSON("http://localhost:3000/lugar", function(data) {
+    $.getJSON("http://localhost:3000/place", function(data) {
         $.each(data, function(index, item) {
             var indice = index + 1;
-            $("table").append("<tr id='fila_" + item.id + "'><td>" + indice + "</td><td>" + item.nombre + "</td><td>" + item.descripcion + "</td><td><a href='./edit_lugar.html?id=" + item.id + "' class='btn btn-primary'>Editar</a> <button onclick='eliminar(\"" + item.id + "\")' class='btn btn-danger delete'>Eliminar</button></td></tr>");
+            $("table").append("<tr id='fila_" + item._id + "'><td>" + indice + "</td><td>" + item.name + "</td><td>" + item.description + "</td><td><a href='./edit_lugar.html?id=" + item._id + "' class='btn btn-primary'>Editar</a> <button onclick='eliminar(\"" + item._id + "\")' class='btn btn-danger delete'>Eliminar</button></td></tr>");
         });
     });
 });
 
 function eliminar(id) {
     var request = $.ajax({
-        url: "http://localhost:3000/lugar/"+id,
+        url: "http://localhost:3000/place/"+id,
         type: "DELETE"
     });
     request.done(function(msg) {

@@ -10,8 +10,9 @@
         <link rel="shortcut icon" href="./icon/favicon.ico" type="image/x-icon" >
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        
+
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
         <style>
             body {
                 padding-top: 50px;
@@ -35,18 +36,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="./index.html">Project name</a>
+                    <span class="navbar-brand" style="color: white">Proyecto Económico</span>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="./index.html">Home</a></li>
                         <li><a href="./lugar/index_lugar.html">Lugar</a></li>
-                        <li><a href="./tarjeta_credito/index_tarjeta_credito.html">Tarjeta de Credito</a></li>
-                        <li><a href="./tarjeta_debito/index_tarjeta_debito.html">Tarjeta de Debito</a></li>
+                        <li><a href="./cuenta/index_cuenta.html">Cuentas</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#form_trans_1" id="nueva_trans_1">Transacciones</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="./tarjeta_debito/tipo_movimiento.html">Tipo Movimiento</a></li>
+                            <ul class="dropdown-menu" style="background: #3F3D3D">
+                                <li><a href="./tipo_transaccion/index_tipo_transaccion.html">Tipo Transacción</a></li>
+                                <li><a href="./cuenta/index_cuenta.html">Cuenta</a></li>
                             </ul>
                         </li>
                 </div><!--/.navbar-collapse -->
@@ -56,9 +58,85 @@
             Control Económico
         </h1>
         <img src="img/dinero.png" alt="" style="width: 600px; height: 400px; position: absolute; left: 50%; margin-left: -300px;top: 50%; margin-top: -100px;">
+
+        <div class="modal fade" id="form_trans_1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Nueva Transacción</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Tipo de Cuenta:</label>
+                                <div class=" col-sm-9">
+                                    <select id="inputTCuenta" class="form-control">
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-4">
+                                    <button data-dismiss="modal" type="button" class="btn btn-default btn-block">Cancelar</button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button id="form_trans_1_submit" type="button" class="btn btn-primary btn-block">Siguiente</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div class="modal fade" id="form_trans_2">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Transacción</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="inputCuenta" class="col-sm-3 control-label">Cuenta:</label>
+                                <div class="col-sm-8">
+                                    <select id="inputCuenta" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-4">
+                                    <button id="form_trans_2_back" type="button" class="btn btn-default btn-block">Atrás</button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button id="form_trans_2_submit" type="button" class="btn btn-primary btn-block">Siguiente</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        
         <script src="js/vendor/jquery/jquery.js"></script>
 
+        <script src="js/vendor/jqueryui/jquery-ui.js"></script>
+
         <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/vendor/jquery.gritter.js"></script>
+
+        <script src="js/vendor/moment-2.4.0.js"></script>
+
+        <script src="js/vendor/bootstrap-datetimepicker.js"></script>
+
+        <script src="js/vendor/bootstrap-datetimepicker.es.js"></script>
 
         <script src="js/index.js"></script>
     </body>

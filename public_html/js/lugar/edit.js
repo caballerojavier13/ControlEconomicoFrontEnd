@@ -1,8 +1,8 @@
 $(function() {
     id = GetURLParameter('id');
-    $.getJSON("http://localhost:3000/lugar/" + id, function(data) {
-        $("#inputNombre").val(data.nombre);
-        $("#inputDescripcion").val(data.descripcion);
+    $.getJSON("http://localhost:3000/place/" + id, function(data) {
+        $("#inputNombre").val(data.name);
+        $("#inputDescripcion").val(data.description);
     });
 });
 
@@ -39,10 +39,10 @@ $("form").submit(function(e) {
     $.gritter.removeAll();
     if (error < 1) {
         var request = $.ajax({
-            url: "http://localhost:3000/lugar/"+ id,
+            url: "http://localhost:3000/place/"+ id+"?name="+nombre+"&description="+descripcion,
             type: "PUT",
-            data: {nombre: nombre, descripcion: descripcion},
-            dataType: "json"
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8'
         });
 
         request.done(function(msg) {

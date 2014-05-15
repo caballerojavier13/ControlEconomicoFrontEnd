@@ -32,10 +32,10 @@ $("form").submit(function(e) {
 
     if (error < 1) {
         var request = $.ajax({
-            url: "http://localhost:3000/lugar",
+            url: "http://localhost:3000/place?name="+nombre+"&description="+descripcion,
             type: "POST",
-            data: {nombre: nombre, descripcion: descripcion},
-            dataType: "json"
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8'
         });
 
         request.done(function(msg) {
